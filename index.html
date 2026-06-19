@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与对照指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f1f2f6;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            color: #2d3436;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e0e4ea;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            color: #1e272e;
+            margin-bottom: 0.75rem;
+        }
+        .hero h1 span {
+            font-weight: 600;
+            color: #0a3d62;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #57606f;
+            max-width: 640px;
+            margin: 0 auto 1.2rem auto;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #f0f3f7;
+            padding: 0.3rem 1.1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2f4f5f;
+            border: 1px solid #d1d9e2;
+        }
+
+        /* 卡片通用 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.6rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e4e8ef;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #1e3b4a;
+            border-left: 4px solid #8faabe;
+            padding-left: 0.9rem;
+        }
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #3d4a57;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0.5rem;
+        }
+        .card li::before {
+            content: "·";
+            color: #738ea0;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.1rem;
+        }
+
+        /* 说明区 - 宽卡 */
+        .intro-wide {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin: 1.8rem 0 2.2rem;
+            border: 1px solid #e3e8f0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .intro-wide h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1e2c38;
+        }
+        .intro-wide p {
+            margin-bottom: 0.9rem;
+            color: #3e4d5a;
+        }
+        .intro-wide a {
+            color: #1a5276;
+            text-decoration: none;
+            background: #f0f4fa;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+        .intro-wide a:hover {
+            background: #dce6f0;
+            text-decoration: underline;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #dee4ed;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1.4rem;
+            color: #1f313e;
+        }
+        .faq-item {
+            margin-bottom: 1.1rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1a3a4a;
+            margin-bottom: 0.15rem;
+        }
+        .faq-item p {
+            color: #455561;
+            margin-left: 0.25rem;
+        }
+
+        /* footer */
+        .footer {
+            margin-top: 2.8rem;
+            padding: 1.2rem 0;
+            border-top: 1px solid #d7dee8;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #5d6c7a;
+        }
+        .footer a {
+            color: #2a4b63;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s;
+        }
+        .footer a:hover {
+            border-bottom-color: #2a4b63;
+        }
+        .footer .copy {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 540px) {
+            body { padding: 1.2rem 0.8rem; }
+            .hero { padding: 2rem 1.2rem; }
+            .hero h1 { font-size: 2rem; }
+            .intro-wide { padding: 1.5rem; }
+            .faq-mini { padding: 1.5rem; }
+            .footer { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1><span>爱游戏</span> · 日常查询与对照</h1>
+        <p>在碎片信息里快速找到靠谱的条目，不用反复切换标签页。随手查，随手比，随性延伸阅读。</p>
+        <div class="tagline">📋 一个小型知识落脚点</div>
+    </div>
+
+    <!-- 优势区：卡片网格 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>条目对照</h3>
+            <ul>
+                <li>同一概念的不同表述并列展示</li>
+                <li>版本差异、用语习惯一目了然</li>
+                <li>减少来回跳转的认知负担</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>延伸阅读</h3>
+            <ul>
+                <li>从当前条目顺藤摸瓜</li>
+                <li>相关主题、背景、术语链接</li>
+                <li>建立自己的知识小径</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>日常查询</h3>
+            <ul>
+                <li>打开即用，轻量响应</li>
+                <li>适合手机、平板、桌面</li>
+                <li>无广告干扰，专注内容</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区 + 自然嵌入链接 -->
+    <div class="intro-wide">
+        <h2>怎么理解这个站点</h2>
+        <p>一开始只是想找一个能快速对照几组术语的地方，后来发现很多朋友也有类似的需求——查到一个说法，又想确认另一种表述是否同一回事，或者想看看有没有更完整的背景介绍。于是就有了这个页面，它不追求大而全，而是围绕 <a href="https://index-official-aiyouxi.com.cn">爱游戏</a> 的内容习惯，把零散信息编排成更适合日常浏览的样式。你可以把它当作一个轻量的知识便签簿。</p>
+        <p>整个结构围绕“查询—对照—延伸”展开。比如看到一条资讯，顺手点进来比对关键词；或者读到一个陌生概念，通过站内关联段落快速获得上下文。这里没有复杂的分类树，只有平铺的条目卡片和简短的说明，让你像翻笔记本一样自然。</p>
+        <p>如果你是第一次来，不妨从任意一张卡片开始。多数条目都附带了相关链接和注释，点击即可展开更多。当然，你也可以直接使用站内搜索（页面顶部的查找功能）定位内容。如果发现遗漏或想补充某个条目，欢迎通过底部渠道反馈。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-item">
+            <strong>这些条目会更新吗？</strong>
+            <p>会。根据日常使用中遇到的新表述、新歧义不定期增补，每次更新都会在 changelog 里注明。</p>
+        </div>
+        <div class="faq-item">
+            <strong>内容来源可靠吗？</strong>
+            <p>每个条目都尽量标注了参考出处或原始链接，你可以自行核实。我们不做二次创作，只做整理与对照。</p>
+        </div>
+        <div class="faq-item">
+            <strong>移动端使用体验如何？</strong>
+            <p>页面采用弹性布局，卡片自动适配屏幕宽度。在手机浏览器上同样可以流畅缩放、点击，不影响对照阅读。</p>
+        </div>
+        <div class="faq-item">
+            <strong>能否转载或分享？</strong>
+            <p>鼓励分享链接。如需转载条目内容，请保留出处或原始参考链接，保持信息完整。</p>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer">
+        <div>
+            <a href="https://index-official-aiyouxi.com.cn">爱游戏</a> · 日常查询对照
+        </div>
+        <div class="copy">
+            <span>内容仅供个人参考 · 非官方</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
