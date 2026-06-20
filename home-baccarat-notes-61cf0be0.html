@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百家乐 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f1f5f0;
+      color: #1b2e2b;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 8px 30px rgba(0, 50, 40, 0.06);
+      overflow: hidden;
+      padding: 2.2rem 1.8rem;
+    }
+
+    @media (min-width: 600px) {
+      body {
+        padding: 3rem 2rem;
+      }
+      .page {
+        padding: 3rem 3.2rem;
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f3d38;
+      margin-bottom: 0.1rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #3e6b63;
+      border-left: 4px solid #2f9e8a;
+      padding-left: 1rem;
+      margin: 0.5rem 0 2rem 0;
+      font-weight: 400;
+    }
+
+    .highlight {
+      background: #dff3ef;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 450;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 2.2rem 0;
+    }
+
+    @media (min-width: 520px) {
+      .grid-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #f6fbf9;
+      border-radius: 24px;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 2px 6px rgba(33, 94, 81, 0.04);
+      border: 1px solid #d7e8e2;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(44, 120, 100, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #1a4d44;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      color: #2a4b44;
+    }
+
+    .quote-note {
+      background: #e3f2ed;
+      border-radius: 20px;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .quote-note::before {
+      content: "📌";
+      font-size: 1.3rem;
+      margin-right: 0.6rem;
+    }
+
+    .quote-note p {
+      display: inline;
+      font-size: 1rem;
+    }
+
+    .access-line {
+      background: #1f4d45;
+      color: #eaf7f2;
+      padding: 1.2rem 1.6rem;
+      border-radius: 40px;
+      text-align: center;
+      margin: 2.2rem 0 1.2rem 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .access-line a {
+      color: #b3f0e0;
+      text-decoration: none;
+      border-bottom: 2px solid #6cc5b2;
+      font-weight: 500;
+      padding: 0 0.1rem;
+    }
+
+    .access-line a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    .faq-summary {
+      background: #f3f9f6;
+      border-radius: 24px;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0 1rem 0;
+    }
+
+    .faq-summary h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0e3f38;
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-summary details {
+      margin-bottom: 0.5rem;
+      border-bottom: 1px dashed #bdd5ce;
+      padding-bottom: 0.5rem;
+    }
+
+    .faq-summary summary {
+      font-weight: 500;
+      color: #1f534a;
+      cursor: pointer;
+      padding: 0.2rem 0;
+    }
+
+    .faq-summary summary::marker {
+      color: #2f9e8a;
+    }
+
+    .faq-summary p {
+      margin: 0.5rem 0 0.2rem 0;
+      font-size: 0.92rem;
+      color: #2a4741;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #b8d5cc, transparent);
+      margin: 1.8rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #587a72;
+      text-align: center;
+      margin-top: 2.6rem;
+    }
+
+    .btn-dummy {
+      display: inline-block;
+      background: #2f9e8a;
+      color: white;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: none;
+      margin-top: 0.4rem;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>百家乐 · 简明指南</h1>
+  <div class="subhead">从规则到习惯，一份务实的桌面备忘</div>
+
+  <p>
+    许多人第一次接触 <a href="https://home--baccarat.com" style="color:#1a6b5d; font-weight:500; text-decoration:underline; text-underline-offset:3px;">百家乐</a> 时，容易被眼花缭乱的牌路和投注选项弄得紧张。其实剥开外层，它更像一场节奏清晰的回合游戏——了解基本流程，比追逐“必胜法”更重要。
+  </p>
+
+  <div class="grid-cards">
+    <div class="card">
+      <h3>🎯 牌局节奏</h3>
+      <p>每局由「闲」与「庄」两方比点数。八副牌混合，荷官依序发牌，补牌规则固定。你只需要决定押注对象，剩下全按既定程序进行。</p>
+    </div>
+    <div class="card">
+      <h3>🧮 点数逻辑</h3>
+      <p>A＝1，2～9按面值，10与花牌均算0。两手牌合计取个位数，最接近9者胜。若出现8或9则直接定胜负，不补牌。</p>
+    </div>
+    <div class="card">
+      <h3>📋 常见投注</h3>
+      <p>押「庄」或「闲」是两种主流选择。押庄获胜时需支付5%佣金，押闲则1:1。另有「和」选项，赔率较高但出现概率低。</p>
+    </div>
+    <div class="card">
+      <h3>📌 策略边界</h3>
+      <p>没有系统能改变牌靴的随机分布。设定停损线、控制单次筹码比例，远比猜测下一局更有效。</p>
+    </div>
+  </div>
+
+  <div class="quote-note">
+    <p><strong>提醒：</strong> 所有牌局结果均独立随机。不盲信「路单」走势，不因连输加倍注码。保持节奏，理性参与。</p>
+  </div>
+
+  <h2 style="font-size:1.3rem; font-weight:500; margin-top:1.8rem; color:#1e544b;">开始前，先确认几件事</h2>
+  <p style="margin:0.6rem 0 1rem 0;">
+    无论你是初次打开界面，还是已有经验，都建议花一分钟确认：网络环境是否稳定、设备电量或充电条件是否充足、以及是否预留了充足的时间。不间断的对局状态容易让人忽略外部环境，小而周全的准备可以减少分心。
+  </p>
+
+  <!-- 嵌入链接的自然语句 -->
+  <p style="background:#ecf6f2; padding:0.8rem 1.2rem; border-radius:30px; margin:1.6rem 0;">
+    🧷 如果你正在寻找规则最完整的解读页面，可以直接参考 <a href="https://home--baccarat.com" style="color:#135c4f; font-weight:600; text-decoration:underline; text-underline-offset:2px;">百家乐</a> 提供的说明——那里整理了牌例、补牌图表与常见术语，适合对照阅读。
+  </p>
+
+  <div class="faq-summary">
+    <h4>❓ 常见疑问速览</h4>
+    <details>
+      <summary>「庄」与「闲」有没有概率差异？</summary>
+      <p>庄的胜率略高于闲（约45.86% vs 44.62%），但押庄需付5%佣金，长期期望值相差不大。和的胜率约9.52%。</p>
+    </details>
+    <details>
+      <summary>八副牌与单副牌有何不同？</summary>
+      <p>多副牌降低算牌的有效性，同时保证牌局连贯。普通娱乐场景下，八副牌能提供足够的随机性。</p>
+    </details>
+    <details>
+      <summary>是否需要记住已出的牌？</summary>
+      <p>对一般参与者而言，记忆已出牌张的实际收益极低。更建议把注意力放在自己的注码管理和时间分配上。</p>
+    </details>
+  </div>
+
+  <hr>
+
+  <div class="access-line">
+    <span style="opacity:0.9;">🟢 对应界面 · 完整规则</span><br>
+    前往 <a href="https://home--baccarat.com">百家乐</a> 查阅牌局范例、补牌逻辑及免责说明。
+  </div>
+
+  <p style="font-size:0.95rem; color:#395f58; margin-top:1.2rem;">
+    这份指南旨在提供清晰的基础框架，而非预测或投注建议。牌桌之外，保持自己的步调更为重要。
+  </p>
+
+  <div class="footer-note">
+    内容仅供交流参考 · 理性判断 · 量力而为
+  </div>
+</div>
+</body>
+</html>
