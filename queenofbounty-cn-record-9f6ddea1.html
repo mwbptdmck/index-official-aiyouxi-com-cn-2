@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
+    <title>赏金女王 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #f9e3c8 0%, #f2cba5 30%, #e6b189 60%, #dba07a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem 3rem;
+            line-height: 1.7;
+            color: #2d2216;
+        }
+
+        .magazine {
+            max-width: 880px;
+            width: 100%;
+            background: rgba(255, 252, 245, 0.6);
+            backdrop-filter: blur(2px);
+            border-radius: 40px 40px 32px 32px;
+            box-shadow: 0 20px 40px rgba(90, 60, 30, 0.15);
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #be7b4b, #9d5e34);
+            padding: 3rem 2.5rem 2.2rem;
+            color: #fef7ef;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to top, rgba(255, 252, 245, 0.6), transparent);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            word-break: break-word;
+        }
+
+        .hero .spacer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 1rem 0 0.8rem;
+            opacity: 0.75;
+        }
+
+        .hero .spacer hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid #f9dbbc;
+        }
+
+        .hero .spacer span {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            background: rgba(255,215,160,0.25);
+            padding: 0 12px;
+            border-radius: 40px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 680px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+
+        .content-wrapper {
+            padding: 2.8rem 2.5rem 2.2rem;
+            background: #fffcf5;
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2rem 2rem 2rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 8px 18px rgba(130, 80, 40, 0.06);
+            border: 1px solid rgba(230, 180, 130, 0.18);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .section-card:last-of-type {
+            margin-bottom: 0.5rem;
+        }
+
+        .section-card h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #633f24;
+            border-left: 8px solid #c08457;
+            padding-left: 1.2rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .section-card h2 i {
+            font-style: normal;
+            background: #f0dac2;
+            padding: 0 6px;
+            border-radius: 6px;
+            font-size: 0.7em;
+            vertical-align: middle;
+            margin-left: 6px;
+            color: #4b311e;
+        }
+
+        .section-card p {
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+            color: #3f2f1f;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.8rem;
+            margin: 1.8rem 0 0.8rem;
+            list-style: none;
+        }
+
+        .highlights li {
+            flex: 1 1 200px;
+            background: #fcf6ed;
+            border-radius: 60px;
+            padding: 0.7rem 1.5rem;
+            font-weight: 400;
+            color: #3b2a1a;
+            border: 1px solid #eacdb4;
+            box-shadow: inset 0 1px 3px rgba(255,255,230,0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.98rem;
+        }
+
+        .highlights li::before {
+            content: '✦';
+            color: #b06d3f;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1.2rem;
+            border-top: 1px dashed #ddc4ae;
+            padding-top: 1.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #efddd0;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #4f351f;
+            font-size: 1.03rem;
+            padding: 0.3rem 0;
+            transition: color 0.15s;
+        }
+
+        .faq-mini summary:hover {
+            color: #a16536;
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.2rem 1.2rem;
+            font-size: 0.95rem;
+            color: #4d3a28;
+        }
+
+        .footer-note {
+            background: #efe2d2;
+            margin: 0 -0.1rem;
+            padding: 2rem 2rem 2.2rem;
+            border-radius: 28px 28px 0 0;
+            text-align: center;
+            border-top: 1px solid #dabfaa;
+            margin-top: 2.5rem;
+        }
+
+        .footer-note p {
+            font-size: 1.1rem;
+            color: #3b2a1b;
+            max-width: 600px;
+            margin: 0 auto 0.8rem;
+        }
+
+        .footer-note .btn-soft {
+            display: inline-block;
+            background: #be7b4b;
+            color: #fef7ed;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.9rem 2.6rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            box-shadow: 0 6px 12px rgba(140, 80, 40, 0.2);
+            transition: 0.2s;
+            border: none;
+            margin-top: 0.6rem;
+        }
+
+        .footer-note .btn-soft:hover {
+            background: #a26237;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(120, 60, 30, 0.2);
+        }
+
+        .footer-note small {
+            display: block;
+            margin-top: 1.5rem;
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        .inline-link {
+            color: #a16536;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            font-weight: 500;
+            transition: 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #663d1f;
+            text-decoration-thickness: 2px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.5rem 2rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem 1.6rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+            .content-wrapper {
+                padding: 1.8rem 1.2rem 1.5rem;
+            }
+            .section-card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 22px;
+            }
+            .section-card h2 {
+                font-size: 1.4rem;
+                padding-left: 0.8rem;
+            }
+            .highlights {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .highlights li {
+                flex: unset;
+                width: 100%;
+            }
+            .footer-note {
+                padding: 1.8rem 1.2rem;
+            }
+            .footer-note .btn-soft {
+                font-size: 1rem;
+                padding: 0.7rem 2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.8rem;
+                letter-spacing: 1px;
+            }
+            .hero p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="magazine">
+
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+        <h1>赏金女王</h1>
+        <div class="spacer">
+            <hr>
+            <span>再次收藏 · 持续关注</span>
+            <hr>
+        </div>
+        <p>从一页书签到持续内容站 · 这是一份认真整理的杂志式介绍</p>
+    </div>
+
+    <!-- 主体卡片区 -->
+    <div class="content-wrapper">
+
+        <!-- 背景说明：从再次访问的角度 -->
+        <div class="section-card">
+            <h2>再次探访 · 收藏的理由 <i>#1</i></h2>
+            <p>有些站点你不会只去一次。<a class="inline-link" href="https://queenofbounty-cn.com">赏金女王</a> 正是这样一处值得放入书签的角落。无论是出于对主题的好奇，还是想要定期看看内容更新，把地址保留在收藏夹里，能让你随时回到这个页面。干净、直接，没有多余弹窗与干扰，适合安静阅读与反复浏览。</p>
+            <p>很多人第一次来是偶然，第二次来就是习惯。收藏从来不是为了“以后再说”，而是为了“下次还来”。在浏览器收藏栏里放一个位置，就是给未来某个想翻翻看的时刻留一扇门。</p>
+        </div>
+
+        <!-- 介绍：从持续关注的角度展开，带自然段落 -->
+        <div class="section-card">
+            <h2>持续关注 · 内容脉络 <i>#2</i></h2>
+            <p>如果你已经来过一次，会发现这个站点有一种稳定的节奏——不追求爆款式的刷屏，而是保持自己的更新频率与话题风格。从背景分享到观点整理，每篇内容都像是一块拼图，慢慢拼出一个更完整的轮廓。</p>
+            <p>持续关注并不是要每天盯着刷新，而是知道有一个地方，当你需要静下来梳理思绪时，它就在那里。这里的文字和结构始终带着一种认真的气质，不浮躁、不迎合，适合那些愿意花几分钟好好读一段内容的人。</p>
+            <ul class="highlights">
+                <li>固定栏目 · 慢更新但稳定</li>
+                <li>主题明确 · 不杂乱</li>
+                <li>风格一贯 · 阅读体感舒适</li>
+            </ul>
+            <p style="margin-top: 0.8rem;">哪怕只是每隔几周回来看看，也会发现新的段落、新的想法。这种积累式的阅读体验，正是持续关注带来的价值。</p>
+        </div>
+
+        <!-- 第三段：从再访 + 收藏的实际场景切入 -->
+        <div class="section-card">
+            <h2>再访场景 · 随手翻开 <i>#3</i></h2>
+            <p>假设你在某天晚上打开收藏夹，找到了几天前存下的页面——那种熟悉又不完全一样的感觉，正是收藏与再访的魅力。你可以从上次读到的地方继续，或者跳到一个新标题下，看看这一周有什么补充。</p>
+            <p>对于 <a class="inline-link" href="https://queenofbounty-cn.com">赏金女王</a> 来说，每一次再访都不是重复，而是一次微小的加深。页面没有复杂的交互门槛，不要求登录，不推送广告，只专注于内容本身。把地址放在手边，就是给未来的自己准备了一份随时可以翻阅的安静角落。</p>
+            <p>如果你还没收藏，现在就可以添加上去。下次再打开时，你会感谢这个简单的动作。</p>
+        </div>
+
+        <!-- FAQ 摘要 + 自然收束 -->
+        <div class="faq-mini">
+            <details>
+                <summary>这个站的内容多久更新一次？</summary>
+                <p>没有固定的时间表，但保持着稳定的节奏。通常每隔一到两周会有新的段落或微调，值得定期回来看看。</p>
+            </details>
+            <details>
+                <summary>收藏之后会不会丢失？</summary>
+                <p>域名稳定、结构清晰，只要收藏链接不变就能一直访问。你也可以随时通过搜索引擎重新找到。</p>
+            </details>
+            <details>
+                <summary>页面风格会经常变吗？</summary>
+                <p>整体调性保持一致，但细节会不断打磨。每次访问都可能发现一些细微的优化，这也是再访的乐趣之一。</p>
+            </details>
+        </div>
+
+        <!-- 页尾访问提示：自然嵌入链接 -->
+        <div class="footer-note">
+            <p>如果你还没有收藏这个页面，现在正是好时机。<br>
+            下次再想起时，直接打开书签就能看到它。</p>
+            <p style="margin-bottom: 0.4rem; font-size: 1.05rem;">
+                前往 <a href="https://queenofbounty-cn.com" style="color:#fef7ed; background:#9d5e34; text-decoration:none; padding:0 8px; border-radius:20px;">赏金女王</a> · 继续你的阅读
+            </p>
+            <a href="https://queenofbounty-cn.com" class="btn-soft">赏金女王</a>
+            <small>杂志专题 · 第434e号 · 保持翻阅</small>
+        </div>
+    </div>
+</div>
+</body>
+</html>
